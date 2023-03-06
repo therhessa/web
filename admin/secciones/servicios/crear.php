@@ -14,15 +14,12 @@ if($_POST){
     $sentencia->bindParam(":titulo",$titulo);
     $sentencia->bindParam(":descripcion",$descripcion);
     $sentencia->execute();
+    $mensaje="Registro agregado con exito.";
+    header("Location:index.php?mensaje=".$mensaje);
 
 }
 
-
-
-?>
-
-
-<?php include("../../template/header.php");?>
+ include("../../template/header.php");?>
 <div class="card">
     <div class="card-header">
         Crear servicios
@@ -30,7 +27,7 @@ if($_POST){
     <div class="card-body">
         <form action="" enctype="multipart/form-data" method="post">
             <div class="mb-3">
-              <label for="icono" class="form-label">Icono</label>
+              <label for="icono" class="form-label">Icono:</label>
               <input type="text"
                 class="form-control" name="icono" id="icono" aria-describedby="helpId" placeholder="Icono">
               
@@ -42,7 +39,7 @@ if($_POST){
             
             </div>
             <div class="mb-3">
-              <label for="descripcion" class="form-label">Descripción</label>
+              <label for="descripcion" class="form-label">Descripción:</label>
               <input type="text"
                 class="form-control" name="descripcion" id="descripcion" aria-describedby="helpId" placeholder="Descripcion">
               
