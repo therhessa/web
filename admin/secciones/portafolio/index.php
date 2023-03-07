@@ -18,28 +18,43 @@ include("../../template/header.php");?>
                     <tr>
                         <th scope="col">ID </th>
                         <th scope="col">Titulo</th>
-                        <th scope="col">Subtitulo</th>
+                      
                         <th scope="col">Imagen</th>
                         <th scope="col">Descripcion</th>
-                        <th scope="col">Cliente</th>
-                        <th scope="col">Categoria</th>
-                        <th scope="col">Url</th>
+                        <th scope="col">Cliente&Cliente</th>
+                        
                         <th scope="col">Acciones</th>
                         
                     </tr>
                 </thead>
                 <tbody>
+                    <?php foreach($lista_portafolio as $registros ) { ?>
                     <tr class="">
-                    <td scope="col">1 </td>
-                        <td scope="col">Software Restaurante</td>
-                        <td scope="col">Software para su restaurante</td>
-                        <td scope="col">imagen.jpg</td>
-                        <td scope="col">Software para su restaurante</td>
-                        <td scope="col">Restaurante</td>
-                        <td scope="col">software</td>
-                        <td scope="col">http://restaurante.com</td>
-                        <td scope="col">Editar | Eliminar </td>
+                    <td scope="col"><?php echo $registros['ID'] ;?> </td>
+                        <td scope="col">
+                           <h6><?php echo $registros['titulo'] ;?></h6> 
+                            <?php echo $registros['subtitulo'] ;?>
+                            <br/>-<?php echo $registros['url'] ;?>
+                    
+                        </td>
+                        
+                        <td scope="col"><?php echo $registros['imagen'] ;?></td>
+                        <td scope="col"><?php echo $registros['descripcion'] ;?></td>
+                       
+                        <td scope="col">
+                            -<?php echo $registros['categoria'] ;?>
+                            <br/>-<?php echo $registros['cliente'] ;?>
+                    
+                        </td>
+                    
+                        <td scope="col">
+                        <a name="" id="" class="btn btn-info" href="editar.php?txtID=<?php echo $registros['ID'] ;?>" role="button">Editar</a>
+                            | 
+                            <a name="" id="" class="btn btn-danger" href="index.php?txtID=<?php echo $registros['ID'] ;?>" role="button">Eliminar</a>
+
+                        </td>
                     </tr>
+                    <?php } ?>
                 
                 </tbody>
             </table>
